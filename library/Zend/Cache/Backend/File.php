@@ -45,12 +45,12 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
      * =====> (string) cache_dir :
      * - Directory where to put the cache files
      *
-     * =====> (boolean) file_locking :
+     * =====> (bool) file_locking :
      * - Enable / disable file_locking
      * - Can avoid cache corruption under bad circumstances but it doesn't work on multithread
      * webservers and on NFS filesystems for example
      *
-     * =====> (boolean) read_control :
+     * =====> (bool) read_control :
      * - Enable / disable read control
      * - If enabled, a control key is embeded in cache file and this key is compared with the one
      * calculated after the reading.

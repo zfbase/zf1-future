@@ -80,10 +80,10 @@ class Zend_Cache_Backend_Memcached extends Zend_Cache_Backend implements Zend_Ca
      *                                    is attempted. The function takes two parameters, the hostname
      *                                    and port of the failed server.
      *
-     * =====> (boolean) compression :
+     * =====> (bool) compression :
      * true if you want to use on-the-fly compression
      *
-     * =====> (boolean) compatibility :
+     * =====> (bool) compatibility :
      * true if you use old memcache server or extension
      *
      * @var array available options

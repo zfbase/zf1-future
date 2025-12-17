@@ -153,7 +153,7 @@ abstract class Zend_Db_Adapter_Abstract
      * Some options are used on a case-by-case basis by adapters:
      *
      * port           => (string) The port of the database
-     * persistent     => (boolean) Whether to use a persistent connection or not, defaults to false
+     * persistent     => (bool) Whether to use a persistent connection or not, defaults to false
      * protocol       => (string) The network protocol, defaults to TCPIP
      * caseFolding    => (int) style of case-alteration used for identifiers
      * socket         => (string) The socket or named pipe that should be used

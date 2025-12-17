@@ -135,7 +135,7 @@ class Zend_Db_Profiler
      */
     public function setEnabled($enable)
     {
-        $this->_enabled = (boolean) $enable;
+        $this->_enabled = (bool) $enable;
 
         return $this;
     }

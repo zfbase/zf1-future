@@ -41,7 +41,7 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
      * - if set to a class name, we will cache an abstract class and will use only static calls
      * - if set to an object, we will cache this object methods
      *
-     * ====> (boolean) cache_by_default :
+     * ====> (bool) cache_by_default :
      * - if true, method calls will be cached by default
      *
      * ====> (array) cached_methods :

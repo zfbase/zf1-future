@@ -56,7 +56,7 @@ class Zend_Db_Adapter_Db2 extends Zend_Db_Adapter_Abstract
      * dbname     => (string)  The name of the database to user
      * protocol   => (string)  Protocol to use, defaults to "TCPIP"
      * port       => (integer) Port number to use for TCP/IP if protocol is "TCPIP"
-     * persistent => (boolean) Set TRUE to use a persistent connection (db2_pconnect)
+     * persistent => (bool) Set TRUE to use a persistent connection (db2_pconnect)
      * os         => (string)  This should be set to 'i5' if the db is on an os400/i5
      * schema     => (string)  The default schema the connection should use
      *

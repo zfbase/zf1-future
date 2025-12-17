@@ -58,7 +58,7 @@ class Zend_Cache_Frontend_File extends Zend_Cache_Core
      * - if MODE_AND, then all master files have to be touched to get a cache invalidation
      * - if MODE_OR (default), then a single touched master file is enough to get a cache invalidation
      *
-     * ====> (boolean) ignore_missing_master_files
+     * ====> (bool) ignore_missing_master_files
      * - if set to true, missing master files are ignored silently
      * - if set to false (default), an exception is thrown if there is a missing master file
      * @var array available options

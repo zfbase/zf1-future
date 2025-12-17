@@ -76,7 +76,7 @@ class Zend_Db_Adapter_Pdo_Sqlite extends Zend_Db_Adapter_Pdo_Abstract
      * dbname    => (string) The name of the database to user (required,
      *                       use :memory: for memory-based database)
      *
-     * sqlite2   => (boolean) PDO_SQLITE defaults to SQLite 3.  For compatibility
+     * sqlite2   => (bool) PDO_SQLITE defaults to SQLite 3.  For compatibility
      *                        with an older SQLite 2 database, set this to TRUE.
      *
      * @param array $config An array of configuration keys.

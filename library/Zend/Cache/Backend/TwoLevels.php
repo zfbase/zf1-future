@@ -66,18 +66,18 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
      *     1               => systematic computation of the fast backend filling percentage
      *     x (integer) > 1 => computation of the fast backend filling percentage randomly 1 times on x cache write
      *
-     * =====> (boolean) slow_backend_custom_naming :
-     * =====> (boolean) fast_backend_custom_naming :
-     * =====> (boolean) slow_backend_autoload :
-     * =====> (boolean) fast_backend_autoload :
+     * =====> (bool) slow_backend_custom_naming :
+     * =====> (bool) fast_backend_custom_naming :
+     * =====> (bool) slow_backend_autoload :
+     * =====> (bool) fast_backend_autoload :
      * - See Zend_Cache::factory() method
      *
-     * =====> (boolean) auto_fill_fast_cache
+     * =====> (bool) auto_fill_fast_cache
      * - If true, automatically fill the fast cache when a cache record was not found in fast cache, but did
      *   exist in slow cache. This can be usefull when a non-persistent cache like APC or Memcached got
      *   purged for whatever reason.
      *
-     * =====> (boolean) auto_refresh_fast_cache
+     * =====> (bool) auto_refresh_fast_cache
      * - If true, auto refresh the fast cache when a cache record is hit
      *
      * @var array available options

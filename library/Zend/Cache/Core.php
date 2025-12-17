@@ -43,19 +43,19 @@ class Zend_Cache_Core
     /**
      * Available options
      *
-     * ====> (boolean) write_control :
+     * ====> (bool) write_control :
      * - Enable / disable write control (the cache is read just after writing to detect corrupt entries)
      * - Enable write control will lightly slow the cache writing but not the cache reading
      * Write control can detect some corrupt cache files but maybe it's not a perfect control
      *
-     * ====> (boolean) caching :
+     * ====> (bool) caching :
      * - Enable / disable caching
      * (can be very useful for the debug of cached scripts)
      *
      * =====> (string) cache_id_prefix :
      * - prefix for cache ids (namespace)
      *
-     * ====> (boolean) automatic_serialization :
+     * ====> (bool) automatic_serialization :
      * - Enable / disable automatic serialization
      * - It can be used to save directly datas which aren't strings (but it's slower)
      *
@@ -71,10 +71,10 @@ class Zend_Cache_Core
      * - Cache lifetime (in seconds)
      * - If null, the cache is valid forever.
      *
-     * ====> (boolean) logging :
+     * ====> (bool) logging :
      * - If set to true, logging is activated (but the system is slower)
      *
-     * ====> (boolean) ignore_user_abort
+     * ====> (bool) ignore_user_abort
      * - If set to true, the core will set the ignore_user_abort PHP flag inside the
      *   save() method to avoid cache corruptions in some cases (default false)
      *

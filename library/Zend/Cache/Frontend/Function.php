@@ -38,7 +38,7 @@ class Zend_Cache_Frontend_Function extends Zend_Cache_Core
     /**
      * This frontend specific options
      *
-     * ====> (boolean) cache_by_default :
+     * ====> (bool) cache_by_default :
      * - if true, function calls will be cached by default
      *
      * ====> (array) cached_functions :

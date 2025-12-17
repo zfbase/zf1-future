@@ -38,14 +38,14 @@ class Zend_Cache_Frontend_Page extends Zend_Cache_Core
     /**
      * This frontend specific options
      *
-     * ====> (boolean) http_conditional :
+     * ====> (bool) http_conditional :
      * - if true, http conditional mode is on
      * WARNING : http_conditional OPTION IS NOT IMPLEMENTED FOR THE MOMENT (TODO)
      *
-     * ====> (boolean) debug_header :
+     * ====> (bool) debug_header :
      * - if true, a debug text is added before each cached pages
      *
-     * ====> (boolean) content_type_memorization :
+     * ====> (bool) content_type_memorization :
      * - deprecated => use memorize_headers instead
      * - if the Content-Type header is sent after the cache was started, the
      *   corresponding value can be memorized and replayed when the cache is hit
@@ -57,11 +57,11 @@ class Zend_Cache_Frontend_Page extends Zend_Cache_Core
      *
      * ====> (array) default_options :
      * - an associative array of default options :
-     *     - (boolean) cache : cache is on by default if true
-     *     - (boolean) cacheWithXXXVariables  (XXXX = 'Get', 'Post', 'Session', 'Files' or 'Cookie') :
+     *     - (bool) cache : cache is on by default if true
+     *     - (bool) cacheWithXXXVariables  (XXXX = 'Get', 'Post', 'Session', 'Files' or 'Cookie') :
      *       if true,  cache is still on even if there are some variables in this superglobal array
      *       if false, cache is off if there are some variables in this superglobal array
-     *     - (boolean) makeIdWithXXXVariables (XXXX = 'Get', 'Post', 'Session', 'Files' or 'Cookie') :
+     *     - (bool) makeIdWithXXXVariables (XXXX = 'Get', 'Post', 'Session', 'Files' or 'Cookie') :
      *       if true, we have to use the content of this superglobal array to make a cache id
      *       if false, the cache id won't be dependent of the content of this superglobal array
      *     - (int) specific_lifetime : cache specific lifetime

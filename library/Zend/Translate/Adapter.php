@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework
  *
@@ -39,7 +40,8 @@ require_once 'Zend/Translate/Plural.php';
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Translate_Adapter {
+abstract class Zend_Translate_Adapter
+{
     /**
      * Shows if locale detection is in automatic level
      * @var boolean
@@ -250,7 +252,8 @@ abstract class Zend_Translate_Adapter {
             $iterator = new RecursiveIteratorIterator(
                 new RecursiveRegexIterator(
                     new RecursiveDirectoryIterator($options['content'], RecursiveDirectoryIterator::KEY_AS_PATHNAME),
-                    '/^(?!.*(\.svn|\.cvs)).*$/', RecursiveRegexIterator::MATCH
+                    '/^(?!.*(\.svn|\.cvs)).*$/',
+                    RecursiveRegexIterator::MATCH
                 ),
                 RecursiveIteratorIterator::SELF_FIRST
             );
@@ -293,18 +296,18 @@ abstract class Zend_Translate_Adapter {
                         } else {
                             $parts  = explode('.', $file);
                             $parts2 = [];
-                            foreach($parts as $token) {
+                            foreach ($parts as $token) {
                                 $parts2 += explode('_', $token);
                             }
                             $parts  = array_merge($parts, $parts2);
                             $parts2 = [];
-                            foreach($parts as $token) {
+                            foreach ($parts as $token) {
                                 $parts2 += explode('-', $token);
                             }
                             $parts = array_merge($parts, $parts2);
                             $parts = array_unique($parts);
                             $prev  = '';
-                            foreach($parts as $token) {
+                            foreach ($parts as $token) {
                                 if (Zend_Locale::isLocale($token, true, false)) {
                                     if (strlen($prev) <= strlen($token)) {
                                         $options['locale'] = $token;
@@ -329,7 +332,7 @@ abstract class Zend_Translate_Adapter {
             $this->_addTranslationData($options);
         }
 
-        if ((isset($this->_translate[$originate]) === true) && (count($this->_translate[$originate]) > 0)) {
+        if ((isset($this->_translate[$originate ?? '']) === true) && (count($this->_translate[$originate ?? '']) > 0)) {
             $this->setLocale($originate);
         }
 
@@ -351,7 +354,8 @@ abstract class Zend_Translate_Adapter {
             if ($key == 'locale') {
                 $locale = $option;
             } else if ((isset($this->_options[$key]) && ($this->_options[$key] != $option)) ||
-                    !isset($this->_options[$key])) {
+                !isset($this->_options[$key])
+            ) {
                 if (($key == 'log') && !($option instanceof Zend_Log)) {
                     require_once 'Zend/Translate/Exception.php';
                     throw new Zend_Translate_Exception('Instance of Zend_Log expected for option log');
@@ -485,7 +489,7 @@ abstract class Zend_Translate_Adapter {
     {
         $list = array_keys($this->_translate);
         $result = null;
-        foreach($list as $value) {
+        foreach ($list as $value) {
             if (!empty($this->_translate[$value])) {
                 $result[$value] = $value;
             }
@@ -653,7 +657,7 @@ abstract class Zend_Translate_Adapter {
         }
 
         $keys = array_keys($temp);
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             if (!isset($this->_translate[$key])) {
                 $this->_translate[$key] = [];
             }
@@ -667,7 +671,7 @@ abstract class Zend_Translate_Adapter {
             $find = new Zend_Locale($options['locale']);
             $browser = $find->getEnvironment() + $find->getBrowser();
             arsort($browser);
-            foreach($browser as $language => $quality) {
+            foreach ($browser as $language => $quality) {
                 if (isset($this->_translate[$language])) {
                     $this->_options['locale'] = $language;
                     break;
@@ -727,8 +731,10 @@ abstract class Zend_Translate_Adapter {
                 $this->_log($messageId, $locale);
                 // use rerouting when enabled
                 if (!empty($this->_options['route'])) {
-                    if (array_key_exists($locale, $this->_options['route']) &&
-                        !array_key_exists($locale, $this->_routed)) {
+                    if (
+                        array_key_exists($locale, $this->_options['route']) &&
+                        !array_key_exists($locale, $this->_routed)
+                    ) {
                         $this->_routed[$locale] = true;
                         return $this->translate($messageId, $this->_options['route'][$locale]);
                     }
@@ -785,8 +791,10 @@ abstract class Zend_Translate_Adapter {
         $this->_log($messageId, $locale);
         // use rerouting when enabled
         if (!empty($this->_options['route'])) {
-            if (array_key_exists($locale, $this->_options['route']) &&
-                !array_key_exists($locale, $this->_routed)) {
+            if (
+                array_key_exists($locale, $this->_options['route']) &&
+                !array_key_exists($locale, $this->_routed)
+            ) {
                 $this->_routed[$locale] = true;
                 return $this->translate($messageId, $this->_options['route'][$locale]);
             }
@@ -828,12 +836,14 @@ abstract class Zend_Translate_Adapter {
      * @param string $message Message to log
      * @param String $locale  Locale to log
      */
-    protected function _log($message, $locale) {
+    protected function _log($message, $locale)
+    {
         if ($this->_options['logUntranslated']) {
             $message = str_replace(
                 ['%message%', '%locale%'],
                 [$message, $locale],
-                $this->_options['logMessage']);
+                $this->_options['logMessage']
+            );
 
             if ($this->_options['log']) {
                 $this->_options['log']->log($message, $this->_options['logPriority']);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework
  *
@@ -332,7 +333,7 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
                 $plugin->postDispatch($request);
             } catch (\Throwable $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
-                    throw new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
+                    throw $e; //new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
                 }
 
                 $this->getResponse()->setException($e);
@@ -349,8 +350,8 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
      */
     public function dispatchLoopShutdown()
     {
-       foreach ($this->_plugins as $plugin) {
-           try {
+        foreach ($this->_plugins as $plugin) {
+            try {
                 $plugin->dispatchLoopShutdown();
             } catch (\Throwable $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
@@ -359,6 +360,6 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
 
                 $this->getResponse()->setException($e);
             }
-       }
+        }
     }
 }

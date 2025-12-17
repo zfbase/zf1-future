@@ -692,7 +692,7 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
             'filename' => basename($filename),
         ]);
 
-        return (boolean) $result->TemplateExistsResult;
+        return (bool) $result->TemplateExistsResult;
     }
 
     /**
@@ -1054,7 +1054,7 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
             'filename' => basename($filename),
         ]);
 
-        return (boolean) $result->ImageExistsResult;
+        return (bool) $result->ImageExistsResult;
     }
 
     /**

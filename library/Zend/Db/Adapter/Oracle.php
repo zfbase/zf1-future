@@ -48,7 +48,7 @@ class Zend_Db_Adapter_Oracle extends Zend_Db_Adapter_Abstract
      * password => (string) Password associated with the username.
      * dbname   => Either the name of the local Oracle instance, or the
      *             name of the entry in tnsnames.ora to which you want to connect.
-     * persistent => (boolean) Set TRUE to use a persistent connection
+     * persistent => (bool) Set TRUE to use a persistent connection
      * @var array
      */
     protected $_config = [

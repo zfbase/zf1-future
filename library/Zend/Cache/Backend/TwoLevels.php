@@ -64,7 +64,7 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
      * - Disable / Tune the computation of the fast backend filling percentage
      * - When saving a record into cache :
      *     1               => systematic computation of the fast backend filling percentage
-     *     x (integer) > 1 => computation of the fast backend filling percentage randomly 1 times on x cache write
+     *     x (int) > 1 => computation of the fast backend filling percentage randomly 1 times on x cache write
      *
      * =====> (bool) slow_backend_custom_naming :
      * =====> (bool) fast_backend_custom_naming :

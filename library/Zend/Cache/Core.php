@@ -65,7 +65,7 @@ class Zend_Cache_Core
      *   cache files when a new cache file is written :
      *     0               => no automatic cache cleaning
      *     1               => systematic cache cleaning
-     *     x (integer) > 1 => automatic cleaning randomly 1 times on x cache write
+     *     x (int) > 1 => automatic cleaning randomly 1 times on x cache write
      *
      * ====> (int) lifetime :
      * - Cache lifetime (in seconds)

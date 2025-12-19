@@ -165,7 +165,7 @@ class Zend_Db_Profiler
         if (null === $minimumSeconds) {
             $this->_filterElapsedSecs = null;
         } else {
-            $this->_filterElapsedSecs = (integer) $minimumSeconds;
+            $this->_filterElapsedSecs = (int) $minimumSeconds;
         }
 
         return $this;

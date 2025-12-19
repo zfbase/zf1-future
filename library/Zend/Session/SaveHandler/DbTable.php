@@ -151,7 +151,7 @@ class Zend_Session_SaveHandler_DbTable
      *
      * dataColumn        => (string) Session table data column
      *
-     * lifetime          => (integer) Session lifetime (optional; default: ini_get('session.gc_maxlifetime'))
+     * lifetime          => (int) Session lifetime (optional; default: ini_get('session.gc_maxlifetime'))
      *
      * overrideLifetime  => (bool) Whether or not the lifetime of an existing session should be overridden
      *      (optional; default: false)

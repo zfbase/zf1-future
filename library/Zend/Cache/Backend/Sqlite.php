@@ -51,7 +51,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
      *   when a clean() or delete() is called
      *     0               => no automatic vacuum
      *     1               => systematic vacuum (when delete() or clean() methods are called)
-     *     x (integer) > 1 => automatic vacuum randomly 1 times on x clean() or delete()
+     *     x (int) > 1 => automatic vacuum randomly 1 times on x clean() or delete()
      *
      * @var array Available options
      */

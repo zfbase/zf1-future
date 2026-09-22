@@ -95,7 +95,7 @@ abstract class Zend_Tool_Framework_Loader_Abstract
             }
 
             $classesLoadedBefore = get_declared_classes();
-            $oldLevel = error_reporting(E_ALL | ~E_STRICT); // remove strict so that other packages wont throw warnings
+            $oldLevel = error_reporting(E_ALL & ~2048); // 2048 = E_STRICT (deprecated as of PHP 8.4); remove strict so that other packages wont throw warnings
             // should we lint the files here? i think so
             include_once $file;
             error_reporting($oldLevel); // restore old error level

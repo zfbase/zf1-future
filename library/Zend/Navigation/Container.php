@@ -514,7 +514,7 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
         current($this->_index);
         $hash = key($this->_index);
 
-        if (isset($this->_pages[$hash])) {
+        if ($hash !== null && isset($this->_pages[$hash])) {
             return $this->_pages[$hash];
         } else {
             require_once 'Zend/Navigation/Exception.php';
@@ -600,7 +600,7 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
     {
         $hash = key($this->_index);
 
-        if (isset($this->_pages[$hash])) {
+        if ($hash !== null && isset($this->_pages[$hash])) {
             return $this->_pages[$hash];
         }
 

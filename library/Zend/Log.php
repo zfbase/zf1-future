@@ -594,7 +594,7 @@ class Zend_Log
             E_USER_ERROR        => Zend_Log::ERR,
             E_CORE_ERROR        => Zend_Log::ERR,
             E_RECOVERABLE_ERROR => Zend_Log::ERR,
-            E_STRICT            => Zend_Log::DEBUG,
+            2048                => Zend_Log::DEBUG, // E_STRICT, deprecated as of PHP 8.4
         ];
         // PHP 5.3.0+
         if (defined('E_DEPRECATED')) {

@@ -23,16 +23,16 @@
 $PHPUNIT = null;
 if (!$PHPUNIT) {
     if (!$PHPUNIT && strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        $PHPUNIT = `for %i in (phpunit.bat) do @echo.   %~\$PATH:i)`;
+        $PHPUNIT = shell_exec('for %i in (phpunit.bat) do @echo.   %~$PATH:i)');
     } else {
-        $PHPUNIT = trim(`echo \$PHPUNIT`);
+        $PHPUNIT = trim((string) shell_exec('echo $PHPUNIT'));
         if (empty($PHPUNIT)) {
-            $PHPUNIT = `which phpunit`;
-            $PHPUNIT = trim($PHPUNIT);
+            $PHPUNIT = shell_exec('which phpunit');
+            $PHPUNIT = trim((string) $PHPUNIT);
         }
     }
 
-    $PHPUNIT = trim($PHPUNIT);
+    $PHPUNIT = trim((string) $PHPUNIT);
     if (!$PHPUNIT) {
         echo "PHPUnit was not found on your OS!" . PHP_EOL;
         exit(1);
@@ -65,7 +65,7 @@ foreach ($files as $file) {
     }
 
     echo "Executing {$file}" . PHP_EOL;
-    system($PHPUNIT . ' --stderr -d memory_limit=-1 -d error_reporting=E_ALL\&E_STRICT -d display_errors=1 ' . escapeshellarg($file), $c_result);
+    system($PHPUNIT . ' --stderr -d memory_limit=-1 -d error_reporting=E_ALL -d display_errors=1 ' . escapeshellarg($file), $c_result);
     echo PHP_EOL;
     echo "Finished executing {$file}" . PHP_EOL;
 

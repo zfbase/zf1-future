@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+* `Zend_View_Twig`: renders `.twig` templates with Twig alongside `.phtml` view scripts, with view helpers available as Twig functions (requires `twig/twig` ^2.7 || ^3.0)
+
 ## [1.24.2] - 2024-10-25
 
 ### Fixed

@@ -29,6 +29,7 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 }
 
 require_once 'Helper/AllTests.php';
+require_once 'TwigTest.php';
 
 /**
  * @category   Zend
@@ -50,6 +51,7 @@ class Zend_View_AllTests
         $suite = new TestSuite('Zend Framework - Zend_View');
 
         $suite->addTest(Zend_View_Helper_AllTests::suite());
+        $suite->addTestSuite('Zend_View_TwigTest');
 
         return $suite;
     }

@@ -1434,22 +1434,21 @@ abstract class Zend_File_Transfer_Adapter_Abstract
      */
     protected function _isPathWriteable($path)
     {
-        $tempFile = rtrim($path, "/\\");
-        $tempFile .= '/' . 'test.1';
+        $path = rtrim($path, "/\\");
 
-        $result = @file_put_contents($tempFile, 'TEST');
-
-        if ($result == false) {
+        // Unique name: a fixed probe file name races between concurrent requests
+        $tempFile = @tempnam($path, 'zfw');
+        if ($tempFile === false) {
             return false;
         }
 
-        $result = @unlink($tempFile);
-
-        if ($result == false) {
+        // tempnam() silently falls back to the system temp dir if $path is not usable
+        if (dirname($tempFile) !== realpath($path)) {
+            @unlink($tempFile);
             return false;
         }
 
-        return true;
+        return @unlink($tempFile);
     }
 
     /**
